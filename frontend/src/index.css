@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --guinda: #9F2241;
+  --guinda-oscuro: #691C32;
+  --verde: #235B4E;
+  --dorado: #BC955C;
+
+  --blanco: #FFFFFF;
+  --gris-claro: #F2F2F2;
+  --gris-medio: #EFEFEF;
+  --gris-verdoso: #EEF2F1;
+  --crema: #FAF7F2;
+  --texto-oscuro: #414141;
+}
+
+@theme inline {
+  --color-guinda: var(--guinda);
+  --color-guinda-oscuro: var(--guinda-oscuro);
+  --color-verde: var(--verde);
+  --color-dorado: var(--dorado);
+  --color-gris-claro: var(--gris-claro);
+  --color-gris-medio: var(--gris-medio);
+  --color-gris-verdoso: var(--gris-verdoso);
+  --color-crema: var(--crema);
+  --color-texto: var(--texto-oscuro);
+}
+
+body {
+  background: var(--crema);
+  color: var(--texto-oscuro);
+}
