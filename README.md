@@ -50,3 +50,10 @@ Variables: `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY
 ## Frontend
 - `/` Portal ciudadano: formulario validado, fotografía con compresión en el navegador, confirmación con folio y consulta de seguimiento.
 - `/admin` Panel municipal: acceso con `ADMIN_KEY`, indicadores, filtros/búsqueda, tabla paginada, detalle con descripción original y fotografía, y cambio de estado.
+
+## Configurar credenciales de Firebase sin copiar y pegar
+Descarga la clave de la cuenta de servicio (`.json`) y ejecuta (la ruta es la de tu archivo; guárdalo **fuera** del repositorio):
+```bash
+npm --prefix backend run firebase:env -- "C:/ruta/a/tu-clave.json"
+```
+Escribe `FIREBASE_*` en `backend/.env` con el formato correcto y sin imprimir secretos. Luego agrega `ADMIN_KEY` a mano.

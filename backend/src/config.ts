@@ -1,4 +1,9 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+// Carga backend/.env sin depender del directorio desde el que se lance el proceso
+dotenv.config({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env"), quiet: true });
 
 export const config = {
   port: Number(process.env.PORT ?? 3000),
