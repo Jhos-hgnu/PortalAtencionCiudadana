@@ -7,7 +7,7 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "tsx --test src/api.test.ts",
+    "test": "tsx --test src/api.test.ts src/firebase.test.ts",
     "firebase:env": "node scripts/firebase-env.mjs"
   },
   "dependencies": {
