@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { config } from "./config.js";
 import { errorHandler } from "./errors.js";
 import type { QuejasRepo } from "./repositories/types.js";
+import { adminRouter } from "./routes/admin.js";
 import { quejasRouter } from "./routes/quejas.js";
 
 export function createApp(repo: QuejasRepo, opts: { firebase: boolean }) {
@@ -18,6 +19,8 @@ export function createApp(repo: QuejasRepo, opts: { firebase: boolean }) {
 
   app.get("/api/health", (_req, res) => res.json({ ok: true, firebase: opts.firebase }));
   app.use("/api/quejas", quejasRouter(repo));
+
+  app.use("/api/admin", adminRouter(repo));
 
   app.use("/api", (_req, res) => res.status(404).json({ error: "Ruta no encontrada" }));
 
