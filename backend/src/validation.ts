@@ -31,7 +31,7 @@ export const nuevaQuejaSchema = z.object({
 
 export const folioSchema = z
   .string()
-  .regex(/^QC-[A-Za-z0-9]{8}$/, "Folio inválido")
+  .regex(/^QC-[A-Z0-9]{8}$/i, "Folio inválido")
   .transform((s) => s.toUpperCase());
 
 export const cambioEstadoSchema = z.object({
