@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { adminApi, adminKey, ApiError } from "../api";
+import DetalleQueja from "../components/DetalleQueja";
 import AdminLogin from "../components/AdminLogin";
 import Indicadores from "../components/Indicadores";
 import TablaQuejas from "../components/TablaQuejas";
@@ -22,7 +23,7 @@ function Panel({ onSalir }: { onSalir: () => void }) {
   const [page, setPage] = useState(1);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
-  const [, setSeleccionada] = useState<Queja | null>(null);
+  const [seleccionada, setSeleccionada] = useState<Queja | null>(null);
 
   // Si el servidor rechaza la clave (401), se cierra la sesión
   const manejar = useCallback((e: unknown) => {
@@ -80,6 +81,15 @@ function Panel({ onSalir }: { onSalir: () => void }) {
       </div>
 
       <TablaQuejas data={data} cargando={cargando} onSelect={setSeleccionada} onPage={setPage} />
+
+      {seleccionada && (
+        <DetalleQueja
+          queja={seleccionada}
+          onClose={() => setSeleccionada(null)}
+          onNoAutorizado={onSalir}
+          onActualizada={(q) => { setSeleccionada(q); refrescar(); }}
+        />
+      )}
     </div>
   );
 }
