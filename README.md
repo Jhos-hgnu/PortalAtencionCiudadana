@@ -46,3 +46,7 @@ Validación con zod, verificación del tipo real de imagen por bytes, límite de
 
 ## Despliegue (Render)
 Variables: `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`, `ADMIN_KEY`. Ver `render.yaml`.
+
+## Frontend
+- `/` Portal ciudadano: formulario validado, fotografía con compresión en el navegador, confirmación con folio y consulta de seguimiento.
+- `/admin` Panel municipal: acceso con `ADMIN_KEY`, indicadores, filtros/búsqueda, tabla paginada, detalle con descripción original y fotografía, y cambio de estado.
